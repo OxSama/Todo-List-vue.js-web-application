@@ -22,13 +22,13 @@ watch(todos, (newVal) => {
 })
 
 const addTodo = () => {
-	if (input_content.value.trim() === '' || input_category.value === null) {
-		return
-	}
+	// if (input_content.value.trim() === '' || input_category.value === null) {
+	// 	return
+	// }
 
 	todos.value.push({
 		content: input_content.value,
-		category: input_category.value,
+		// category: input_category.value,
 		done: false,
 		editable: false,
 		createdAt: new Date().getTime()
@@ -63,10 +63,10 @@ onMounted(() => {
 					type="text" 
 					name="content" 
 					id="content" 
-					placeholder="e.g. make a video"
+					placeholder="e.g. Read Quran"
 					v-model="input_content" />
 				
-				<h4>Pick a category</h4>
+				<!-- <h4>Pick a category</h4>
 				<div class="options">
 
 					<label>
@@ -91,7 +91,7 @@ onMounted(() => {
 						<div>Personal</div>
 					</label>
 
-				</div>
+				</div> -->
 
 				<input type="submit" value="Add todo" />
 			</form>
@@ -102,14 +102,14 @@ onMounted(() => {
 			<div class="list" id="todo-list">
 
 				<div v-for="todo in todos_asc" :class="`todo-item ${todo.done && 'done'}`">
-					<label>
+					<!-- <label>
 						<input type="checkbox" v-model="todo.done" />
 						<span :class="`bubble ${
 							todo.category == 'business' 
 								? 'business' 
 								: 'personal'
 						}`"></span>
-					</label>
+					</label> -->
 
 					<div class="todo-content">
 						<input type="text" v-model="todo.content" />
